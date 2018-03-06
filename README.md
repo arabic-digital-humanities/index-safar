@@ -1,5 +1,18 @@
 # BlackLab indexing formats for SAFAR
 
+## How to use
+
+```
+git clone git@github.com:arabic-digital-humanities/index-safar.git
+cd index-safar
+```
+
+Run the BlackLab IndexTool from this directory:
+```
+java -cp /path/to/blacklab.jar nl.inl.blacklab.tools.IndexTool create /path/to/index/directory/ /path/to/data/directory/ safar-analyzer
+```
+
+Or copy the indexing format file to the directory you are running the BlackLab IndexTool from.
 
 ## Analyzer
 
