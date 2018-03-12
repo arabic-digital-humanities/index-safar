@@ -32,13 +32,13 @@ annotatedFields:
 
     # What element (relative to document) contains this field's contents?
     # (if omitted, entire document is used)
-    containerPath: ./morphology_analysis
+    containerPath: morphology_analysis
 
     # What are our word tags? (relative to container)
-    wordPath: ./word
+    wordPath: word
 
     # Punctuation between word tags (relative to container)
-    punctPath: .//text()[not(ancestor::w)]   # = "all text nodes (under containerPath) not inside a <w/> element"
+    #punctPath: .//text()[not(ancestor::w)]   # = "all text nodes (under containerPath) not inside a <w/> element"
 
     # What annotation can each word have? How do we index them?
     # (annotations are also called "(word) properties" in BlackLab)
