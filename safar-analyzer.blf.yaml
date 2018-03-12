@@ -49,7 +49,8 @@ annotatedFields:
     - name: word
       valuePath: "@value"
     - name: stem
-      valuePath: "./analysis/@stem"
+      # get all unique values from the <analysis> nodes
+      valuePath: "analysis[not(@stem=preceding-sibling::analysis/@stem)]/@stem"
       multipleValues: true
 
     # XML tags within the content we'd like to index
