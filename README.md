@@ -25,9 +25,10 @@ Word looks like (faked data- so don't count on working ids):
 </word>
 ```
 
-* Empty word (`<word>` without `<analysis>`) is not a problem; the document is
-indexed without error messages and the user can search for the word. It just
-doesn't have stems, etc. associated with it.
+* Empty word (`<word>` without `<analysis>`) is a problem. Although the document is
+indexed without error messages and the user can search for the word, the word
+that doesn't have `<analysis>` elements is erroneously associated with the stem
+of the next word. This seems to be [a bug in BlackLab](https://github.com/INL/BlackLab/issues/43).  
 * All occurrences of a multiple values annotation (e.g., stem) are indexed. If
 you search for a stem that is indexed multiple times, you get multiple hits,
 so it seems like a good idea to filter the analyses (we are not interested in the
