@@ -55,6 +55,12 @@ annotatedFields:
       process:
       - action: default
         value: "NO_STEM"
+    - name: root
+      valuePath: "analysis[not(@root=preceding-sibling::analysis/@root)]/@root"
+      multipleValues: true
+      process:
+      - action: default
+        value: "NO_ROOT"
 
     # XML tags within the content we'd like to index
     # (relative to container)
