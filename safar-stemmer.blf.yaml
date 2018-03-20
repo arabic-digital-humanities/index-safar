@@ -1,0 +1,62 @@
+# For displaying in user interface (optional)
+displayName: "SAFAR stemmer format"
+
+# For describing input format in user interface (optional)
+description: XML
+
+# (Optional, informational)
+# content, metadata or mixed?
+# (not used by BlackLab, purely informational for the frontend application)
+type: mixed
+
+# What namespaces do we use in our XPaths?
+# (if none are declared, ignore namespaces)
+#namespaces:
+#  '': http://ilk.uvt.nl/folia    # ('' -> default namespace)
+
+# What element starts a new document?
+# (the only absolute XPath; the rest is relative)
+documentPath: /
+
+# Annotated, CQL-searchable fields (also called "complex fields").
+# We usually have just one, named "contents".
+annotatedFields:
+
+  contents:
+
+    # How to display the field in the interface (optional)
+    displayName: Contents
+
+    # How to describe the field in the interface (optional)
+    description: Contents of the documents.
+
+    # What element (relative to document) contains this field's contents?
+    # (if omitted, entire document is used)
+    containerPath: //stemmer_analysis
+
+    # What are our word tags? (relative to container)
+    wordPath: word
+
+    # Punctuation between word tags (relative to container)
+    #punctPath: .//text()[not(ancestor::w)]   # = "all text nodes (under containerPath) not inside a <w/> element"
+
+    # What annotation can each word have? How do we index them?
+    # (annotations are also called "(word) properties" in BlackLab)
+    # (valuePaths relative to word path)
+    # NOTE: forEachPath is NOT allowed for annotations, because we need to know all annotations before indexing,
+    #       and with forEachPath you could run in to an unknown new annotation mid-way through.
+    annotations:
+    - name: word
+      valuePath: "@value"
+    - name: stem
+      valuePath: "analysis/@stem"
+      process:
+      - action: default
+        value: "NO_STEM"
+
+metadata:
+  containerPath: //metadata
+  fields:
+  - forEachPath: meta
+    namePath: "@name"
+    valuePath: .
