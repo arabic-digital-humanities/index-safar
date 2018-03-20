@@ -32,7 +32,7 @@ annotatedFields:
 
     # What element (relative to document) contains this field's contents?
     # (if omitted, entire document is used)
-    containerPath: morphology_analysis
+    containerPath: //morphology_analysis
 
     # What are our word tags? (relative to container)
     wordPath: word
@@ -61,18 +61,3 @@ annotatedFields:
       process:
       - action: default
         value: "NO_ROOT"
-
-    # XML tags within the content we'd like to index
-    # (relative to container)
-    #inlineTags:
-    #- path: .//s
-      #call: openSonarSentence  # to call a plugin method for this tag
-    #- path: .//p
-
-# FoLiA's native metadata
-#metadata:
-#  containerPath: //listBibl[@id='inlMetadata']
-#  fields:
-#  - forEachPath: bibl/interpGrp/interp
-#    namePath: ../@type                    # interpGrp/@type
-#    valuePath: "@value"                   # interp/@value
