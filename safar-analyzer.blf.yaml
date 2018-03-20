@@ -61,3 +61,10 @@ annotatedFields:
       process:
       - action: default
         value: "NO_ROOT"
+
+metadata:
+  containerPath: //metadata
+  fields:
+  - forEachPath: meta
+    namePath: "@name"
+    valuePath: .
