@@ -33,3 +33,7 @@ of the next word. This seems to be [a bug in BlackLab](https://github.com/INL/Bl
 you search for a stem that is indexed multiple times, you get multiple hits,
 so it seems like a good idea to filter the analyses (we are not interested in the
 different vowelizations of words).
+
+
+# Interface files
+The contents directory `interface-defaults` are meant to specify a specific corpus-frontend interface for Arabic Digital Humanities. Define the `corporaInterfaceDataDir` property in `corpus-frontend.properties` and copy the content of `interface-defaults` to this directory.
