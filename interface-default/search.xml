@@ -22,7 +22,7 @@
         <!--
         <PropColumns>lemma,pos,tense, person,number</PropColumns>
         -->
-        <CustomCss>fiqh/static/css/arabic-digital-humanities.css</CustomCss>
+        <CustomCss>default/static/css/arabic-digital-humanities.css</CustomCss>
         <NavLinks>
         	<!-- Relative links will be made relative to the application root, 
         	whereas absolute links will be placed in the bar as-is. -->
