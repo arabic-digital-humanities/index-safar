@@ -68,3 +68,8 @@ metadata:
   - forEachPath: meta
     namePath: "@name"
     valuePath: .
+
+# The settings in this block will be copied into indexmetadata.yaml
+# https://inl.github.io/BlackLab/how-to-configure-indexing.html#influence-index-metadata
+corpusConfig:
+  textDirection: RTL
