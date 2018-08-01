@@ -37,3 +37,11 @@ different vowelizations of words).
 
 # Interface files
 The contents directory `interface-defaults` are meant to specify a specific corpus-frontend interface for Arabic Digital Humanities. Define the `corporaInterfaceDataDir` property in `corpus-frontend.properties` and copy the content of `interface-defaults` to this directory.
+
+# XSD files
+
+Before indexing them using Blacklab, XML files can be validated using the xsd files:
+
+```
+xmllint --schema /path/to/xsd/safar-stemmer.xsd --noout /path/to/xml/file.xml
+```
