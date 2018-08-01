@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of attributes -->
+<xs:attribute name="total_words" type="xs:string"/>
+<xs:attribute name="value" type="xs:string"/>
+<xs:attribute name="w_id" type="xs:string"/>
+<xs:attribute name="stem" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+
+<!-- definition of complex elements -->
+<xs:element name="meta">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute ref="name" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="metadata">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="meta" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="analysis">
+  <xs:complexType>
+    <xs:sequence>
+    </xs:sequence>
+    <xs:attribute ref="stem" use="required"/>
+    <xs:attribute ref="type" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="word">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="analysis"/>
+    </xs:sequence>
+    <xs:attribute ref="value" use="required"/>
+    <xs:attribute ref="w_id" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="stemmer_analysis">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="word" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="total_words" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="document">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="metadata"/>
+      <xs:element ref="stemmer_analysis"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
