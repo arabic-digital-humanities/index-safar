@@ -2,8 +2,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 <!-- definition of attributes -->
-<xs:attribute name="total_words" type="xs:string"/>
-<xs:attribute name="total_analysis" type="xs:string"/>
+<xs:attribute name="total_words" type="xs:integer"/>
+<xs:attribute name="total_analysis" type="xs:integer"/>
 <xs:attribute name="value" type="xs:string"/>
 <xs:attribute name="name" type="xs:string"/>
 <xs:attribute name="w_id" type="xs:string"/>
