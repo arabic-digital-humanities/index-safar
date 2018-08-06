@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of attributes -->
+<xs:attribute name="total_words" type="xs:string"/>
+<xs:attribute name="total_analysis" type="xs:string"/>
+<xs:attribute name="value" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="w_id" type="xs:string"/>
+<xs:attribute name="a_id" type="xs:string"/>
+<xs:attribute name="additional_info" type="xs:string"/>
+<xs:attribute name="pos" type="xs:string"/>
+<xs:attribute name="prefix" type="xs:string"/>
+<xs:attribute name="stem" type="xs:string"/>
+<xs:attribute name="suffix" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="vowled" type="xs:string"/>
+<xs:attribute name="caze" type="xs:string"/>
+<xs:attribute name="gender" type="xs:string"/>
+<xs:attribute name="mood" type="xs:string"/>
+<xs:attribute name="number" type="xs:string"/>
+<xs:attribute name="pattern" type="xs:string"/>
+<xs:attribute name="root" type="xs:string"/>
+<xs:attribute name="transitive" type="xs:string"/>
+<xs:attribute name="impartial" type="xs:string"/>
+
+<!-- definition of complex elements -->
+<xs:element name="meta">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute ref="name" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="metadata">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="meta" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="analysis">
+  <xs:complexType>
+    <xs:sequence>
+    </xs:sequence>
+    <xs:attribute ref="a_id" use="required"/>
+    <xs:attribute ref="additional_info" use="required"/>
+    <xs:attribute ref="caze"/>
+    <xs:attribute ref="gender"/>
+    <xs:attribute ref="impartial"/>
+    <xs:attribute ref="mood"/>
+    <xs:attribute ref="number"/>
+    <xs:attribute ref="pattern"/>
+    <xs:attribute ref="pos" use="required"/>
+    <xs:attribute ref="prefix" use="required"/>
+    <xs:attribute ref="root"/>
+    <xs:attribute ref="stem" use="required"/>
+    <xs:attribute ref="suffix" use="required"/>
+    <xs:attribute ref="transitive"/>
+    <xs:attribute ref="type" use="required"/>
+    <xs:attribute ref="vowled" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="word">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="analysis" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="value" use="required"/>
+    <xs:attribute ref="w_id" use="required"/>
+    <xs:attribute ref="total_analysis" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="morphology_analysis">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="word" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="total_words" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="document">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="metadata"/>
+      <xs:element ref="morphology_analysis"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
