@@ -60,6 +60,7 @@ metadata:
   - forEachPath: meta
     namePath: "@name"
     valuePath: .
+    type: untokenized
 
 
 # The settings in this block will be copied into indexmetadata.yaml
