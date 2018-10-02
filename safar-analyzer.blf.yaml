@@ -62,15 +62,43 @@ annotatedFields:
       - action: default
         value: "NO_ROOT"
 
+metadataDefaultAnalyzer: nontokenizing
 metadata:
   containerPath: //metadata
   fields:
   - forEachPath: meta
     namePath: "@name"
     valuePath: .
+  - name: Title
+    description: Title of the document
     type: untokenized
+    uiType: select
+  - name: Author
+    description: Author of the document
+    type: untokenized
+    uiType: select
+  - name: AuthorDIEDH
+    type: untokenized
+    uiType: range
+  - name: School
+    type: untokenized
+    uiType: select
+  - name: Geographical_area
+    type: untokenized
+    uiType: select
 
 # The settings in this block will be copied into indexmetadata.yaml
 # https://inl.github.io/BlackLab/how-to-configure-indexing.html#influence-index-metadata
 corpusConfig:
   textDirection: RTL
+  metadataFieldGroups:
+  - name: Filters          # Text on tab, if there's more than one group
+    fields:                # Metadata fields to display on this tab
+    - Author
+    - Title
+    - AuthorDIEDH
+    - School
+    - Geographical_area
+  - name: Other Metadata
+    addRemainingFields: true  # BLS will add any field not yet in
+                                # any group to this group
