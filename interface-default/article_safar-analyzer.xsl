@@ -10,12 +10,7 @@
         (Error code: <xsl:value-of select="code" />)
     </xsl:template>
     
-    <xsl:template match="//metadata">
-	    <xsl:for-each select="//meta">
-			    	<xsl:value-of select="@name"/>: <xsl:apply-templates/><br/>
-		<xsl:text> </xsl:text>
-	    </xsl:for-each>
-    </xsl:template>
+    <xsl:template match="//metadata"/>
     
     <xsl:template match="//morphology_analysis">
         <xsl:for-each select="//word">
