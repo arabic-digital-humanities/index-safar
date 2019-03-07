@@ -26,8 +26,9 @@
         <NavLinks>
         	<!-- Relative links will be made relative to the application root, 
         	whereas absolute links will be placed in the bar as-is. -->
-            <Link value="${request:contextPath}/help" relative="true">Help</Link>
-        	<Link value="${request:contextPath}/about" relative="true">About</Link>
+        	<Link value="${request:contextPath}" relative="false">Home</Link>
+            <Link value="${request:contextPath}/help" relative="false">Help</Link>
+        	<Link value="${request:contextPath}/about" relative="false">About</Link>
         </NavLinks>
 	</InterfaceProperties>
 	<XsltParameters>
