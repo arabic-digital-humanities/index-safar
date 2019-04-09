@@ -13,17 +13,25 @@
     <xsl:template match="//metadata"/>
     
     <xsl:template match="//morphology_analysis">
-        <xsl:for-each select="//word">
-        <xsl:variable name="roots" select="analysis[not(@root=preceding-sibling::analysis/@root)]/@root" />
-		    <span class="word" ref="tooltip">
-			    <xsl:attribute name="title">
-	                <xsl:value-of select="$roots"/>
-	            </xsl:attribute>
-		    	<xsl:value-of select="@value"/>
-		    </span>
-		    <xsl:text> </xsl:text>
-    	</xsl:for-each>
+	    <div dir="rtl">
+	    	 <xsl:apply-templates />
+	    </div>
     </xsl:template>
+    
+    
+    <xsl:template match="word">
+       <xsl:variable name="roots" select="analysis[not(@root=preceding-sibling::analysis/@root)]/@root" />
+	    <span class="word" ref="tooltip">
+		    <xsl:attribute name="title">
+                <xsl:value-of select="$roots"/>
+            </xsl:attribute>
+	    	<xsl:value-of select="@value"/>
+	    </span>
+	    <xsl:text> </xsl:text>
+    </xsl:template>
+    
+    
+
 
 <!--     <xsl:template match="//word">
     	<xsl:variable name="roots" select="analysis[not(@root=preceding-sibling::analysis/@root)]/@root" />
