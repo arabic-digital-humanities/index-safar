@@ -56,3 +56,9 @@ Before indexing them using Blacklab, XML files can be validated using the xsd fi
 ```
 xmllint --schema /path/to/xsd/safar-stemmer.xsd --noout /path/to/xml/file.xml
 ```
+
+## License
+
+[![License: CC BY 4.0](https://i.creativecommons.org/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+The data in this repository is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
