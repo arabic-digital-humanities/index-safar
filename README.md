@@ -1,5 +1,9 @@
 # BlackLab indexing formats for SAFAR
 
+The yaml files in this repository specify a custom [BlackLab](http://inl.github.io/BlackLab/index.html) indexer formats, one for safar-stemmer and one for safar-analyzer. They were developed in the context of the [Bridging the Gap](https://www.esciencecenter.nl/project/bridging-the-gap) project.
+
+[SAFAR](http://arabic.emi.ac.ma/safar/?q=node/13) is a tool for Arabic natural language processing.
+
 ## How to use
 
 ```
@@ -13,6 +17,15 @@ java -cp /path/to/blacklab.jar nl.inl.blacklab.tools.IndexTool create /path/to/i
 ```
 
 Or copy the indexing format file to the directory you are running the BlackLab IndexTool from.
+
+### Configuring metadata
+
+For configuring which metadata fields are shown in the corpus-frontend, we use [corpus specific metadata configuration](https://github.com/arabic-digital-humanities/corpus-blacklab-metadata-config).
+
+More info on configuring metadata:
+
+* [How to configure indexing in BlackLab](http://inl.github.io/BlackLab/how-to-configure-indexing.html).
+* [Corpus-frontend index config](https://github.com/INL/corpus-frontend#index-config)
 
 ## Analyzer
 
@@ -35,6 +48,8 @@ different vowelizations of words).
 The contents directory `interface-defaults` are meant to specify a specific corpus-frontend interface for Arabic Digital Humanities. Define the `corporaInterfaceDataDir` property in `corpus-frontend.properties` and copy the content of `interface-defaults` to this directory.
 
 # XSD files
+
+**Please note that the XSD files are outdated.**
 
 Before indexing them using Blacklab, XML files can be validated using the xsd files:
 
