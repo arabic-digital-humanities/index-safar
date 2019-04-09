@@ -33,21 +33,5 @@
     
 
 
-<!--     <xsl:template match="//word">
-    	<xsl:variable name="roots" select="analysis[not(@root=preceding-sibling::analysis/@root)]/@root" />
-    	<xsl:variable name="stems" select="analysis[not(@stem=preceding-sibling::analysis/@stem)]/@stem" />
-    	<span class="word" ref="tooltip">
-            <xsl:attribute name="title">
-                <xsl:value-of select="$roots" />
-                <xsl:text>root</xsl:text>
-            </xsl:attribute>
-            <xsl:value-of select="@value" />
-        </span>
-    	<xsl:text> </xsl:text>
-    	<xsl:for-each select="analysis[not(@root=preceding-sibling::analysis/@root)]/@root">
-    		root
-    		<xsl:value-of select="@value"/>
-        </xsl:for-each>
-    </xsl:template> -->
 
 </xsl:stylesheet>
